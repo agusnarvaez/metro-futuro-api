@@ -1,1 +1,1 @@
-# metro-futuro-api
+# Este respositorio se usará para almacenar la API de la web Metro Futuro
