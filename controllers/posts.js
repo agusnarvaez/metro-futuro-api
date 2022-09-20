@@ -7,9 +7,17 @@ export const getPosts = (req,res)=>{
             res.status(200).json(postMessages)
         })
         .catch((error)=>res.status(404).json({message:error.message}))
-    /* res.send('This works') */
+    
 }
 
 export const createPost = (req,res)=>{
-    res.send("Post Creation")
+    const post = req.body
+
+    const newPost = new PostMessage(post)
+
+    newPost.save()
+        .then((newPost)=>{
+            res.status(201).json(newPost)
+        })
+        .catch((error)=>res.status(409).json({message:error.message}))
 }
