@@ -4,6 +4,7 @@ export const getPosts = (req,res)=>{
     
     PostMessage.find()
         .then((postMessages)=>{
+            console.log("Se ingresó a /posts")
             res.status(200).json(postMessages)
         })
         .catch((error)=>res.status(404).json({message:error.message}))

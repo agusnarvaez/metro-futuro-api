@@ -11,8 +11,6 @@ import postRoutes from "./routes/posts.js"
 const app = express()
 
 
-//* Lo que ruteará en localhost:5000/posts
-app.use('/posts',postRoutes)
 
 //* Utilizamos bodyParser para enviar apropiadamente nuestras requests
 app.use(bodyParser.json({limit:"30mb",extended:true}))
@@ -20,6 +18,11 @@ app.use(bodyParser.urlencoded({limit:"30mb",extended:true}))
 
 //* Is used to specitfy what domains can access the API
 app.use(cors())
+
+
+//* Lo que ruteará en localhost:5000/posts
+app.use('/posts',postRoutes)
+
 
 //* URL de la base de datos
 const CONNECTION_URL = credentials.mongoDB
